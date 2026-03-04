@@ -71,7 +71,7 @@ def generate_pdf(data):
     elements.append(Paragraph(reg_info, left_style))
     elements.append(Spacer(1, 15))
 
-    # --- MAIN TABLE: HUSBAND & WIFE DETAILS (NIN Removed) ---
+    # --- MAIN TABLE: HUSBAND & WIFE DETAILS ---
     main_table_data = [
         [P("<b>詳細 (Details)</b>"), P("<b>夫 (Husband)</b>"), P("<b>妻 (Wife)</b>")],
         [P("フルネーム<br/>(Full name)"), P(data["Husband's Name (夫の氏名)"]), P(data["Wife's Name (妻の氏名)"])],
@@ -151,27 +151,27 @@ mar_type = st.text_input("Marriage Type (結婚の種類)", value="2017年国市
 st.write("---")
 
 st.subheader("Husband's Details / 夫の詳細")
-h_name = st.text_input("Husband's Name (夫の氏名)")
+h_name = st.text_input("Husband's Name (夫の氏名)", placeholder="カタカナで書いてください")
 h_dob = render_date_dropdowns("Husband's Date of Birth (夫の生年月日)", "h_dob")
 h_id = st.text_input("Husband's Citizenship/Passport (夫の身分証番号)")
-h_address = st.text_input("Husband's Address (夫の永住住所)")
-h_father = st.text_input("Husband's Father's Name (夫の父親の氏名)")
-h_mother = st.text_input("Husband's Mother's Name (夫の母親の氏名)")
+h_address = st.text_input("Husband's Address (夫の永住住所)", placeholder="日本語で書いてください")
+h_father = st.text_input("Husband's Father's Name (夫の父親の氏名)", placeholder="カタカナで書いてください")
+h_mother = st.text_input("Husband's Mother's Name (夫の母親の氏名)", placeholder="カタカナで書いてください")
 
 st.write("---")
 
 st.subheader("Wife's Details / 妻の詳細")
-w_name = st.text_input("Wife's Name (妻の氏名)")
+w_name = st.text_input("Wife's Name (妻の氏名)", placeholder="カタカナで書いてください")
 w_dob = render_date_dropdowns("Wife's Date of Birth (妻の生年月日)", "w_dob")
 w_id = st.text_input("Wife's Citizenship/Passport (妻の身分証番号)")
-w_address = st.text_input("Wife's Address (妻の永住住所)")
-w_father = st.text_input("Wife's Father's Name (妻の父親の氏名)")
-w_mother = st.text_input("Wife's Mother's Name (妻の母親の氏名)")
+w_address = st.text_input("Wife's Address (妻の永住住所)", placeholder="日本語で書いてください")
+w_father = st.text_input("Wife's Father's Name (妻の父親の氏名)", placeholder="カタカナで書いてください")
+w_mother = st.text_input("Wife's Mother's Name (妻の母親の氏名)", placeholder="カタカナで書いてください")
 
 st.write("---")
 
 st.subheader("Official Details / 公式詳細")
-registrar = st.text_input("Registrar Name (地方登記官の名前)")
+registrar = st.text_input("Registrar Name (地方登記官の名前)", placeholder="カタカナで書いてください")
 
 # --- SMART TRANSLATOR LOGIC ---
 translator_options = []
@@ -182,11 +182,11 @@ translator_options.append("Other (手動入力)")
 translator_choice = st.selectbox("Translator Name (翻訳者の氏名)", translator_options)
 
 if translator_choice == "Other (手動入力)":
-    translator_name = st.text_input("Enter the Translator's Full Name / 翻訳者の氏名を入力してください")
+    translator_name = st.text_input("Enter the Translator's Full Name / 翻訳者の氏名を入力してください", placeholder="カタカナで書いてください")
 else:
     translator_name = translator_choice
 
-address_japan = st.text_input("Address in Japan (日本での住所)")
+address_japan = st.text_input("Address in Japan (日本での住所)", placeholder="日本語で書いてください")
 
 st.write("---")
 
